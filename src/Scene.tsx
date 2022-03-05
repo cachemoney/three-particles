@@ -1,7 +1,9 @@
 import {AbsoluteFill, useVideoConfig} from 'remotion';
+import {ThreeCanvas} from '@remotion/three';
 
 import {Dust} from './Dust';
-import {ThreeCanvas} from '@remotion/three';
+import {Planet} from './Planet';
+import { Effects } from './Effects';
 
 export const SpaceDust = () => {
 	const {width, height} = useVideoConfig();
@@ -12,7 +14,11 @@ export const SpaceDust = () => {
 				height={height}
 				camera={{fov: 100, position: [0, 0, 30]}}
 			>
+				<Planet
+          distortionScale={2}
+        />
 				<Dust />
+				<Effects />
 			</ThreeCanvas>
 		</AbsoluteFill>
 	);
